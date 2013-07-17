@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 # -*- coding: utf-8 -*-
 
 import os
@@ -18,7 +18,6 @@ print opcoes.numero
 
 # inicializa listas
 lista = []
-final = []
 
 # percorre arquivo de palavras
 arquivo = open(opcoes.entrada,'r')
@@ -35,24 +34,26 @@ if len(lista) < 25:
     print 'ERRO: poucas palavras no palavras.txt'
     exit(1)
 
-# escolhe 24 palavras para tabela
-escolhidas = set()
-for contador in range(1,25):
-    # gera um número aleatório até encontrar uma palavra que não foi escolhida
-    while True:
-        indice = int(len(lista) * random.random())
-        if indice not in escolhidas:
-            break;
-
-    # adiciona a palavra escolhida na lista da cartela
-    final.append(lista[indice])
-    # marca palavra como escolhida
-    escolhidas.add(indice)
-
 contador = 0
 total = int(opcoes.numero)
 while contador < total:
     contador += 1
+
+    # escolhe 24 palavras para tabela
+    escolhidas = []
+    final = []
+    for aux in range(1,25):
+        # gera um número aleatório até encontrar uma palavra que não foi escolhida
+        while True:
+            indice = int(len(lista) * random.random())
+            if indice not in escolhidas:
+                break;
+
+        # adiciona a palavra escolhida na lista da cartela
+        final.append(lista[indice])
+        # marca palavra como escolhida
+        escolhidas.append(indice)
+
     if not opcoes.latex:
         # abre arquivo de saída
         saida = open('bingo%i.html' % contador,'w')
