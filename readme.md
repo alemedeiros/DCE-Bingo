@@ -16,5 +16,5 @@ palavras desejadas
   1. salve os arquivos no mesmo diretório;
   2. no diretório escolhido, digite o comando: `./bingo.py`
     * para saída em LaTeX: `./bingo.py -l`
-    * para gerar mais de uma cartela por vez: `./bingo -n N`
+    * para gerar N cartelas: `./bingo -n N`
   3. sua(s) cartela(s) estará(ão) no arquivo `bingoN.html` ou `bingoN.pdf`
