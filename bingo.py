@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import os
 import random
 import datetime
 
@@ -46,10 +47,10 @@ if html:
     # insere cabeçalho
     saida.write('<html><head><title>Bingo do DCE</title></head><body>\n')
     saida.write('<h1>Bingo do DCE</h1>\n')
-    hoje = datetime.date.today()
-    saida.write('<p>Cartela gerada %s</p>' % hoje)
     saida.write('<p> Seu nome: ___________________________<br /><br />\n')
-    saida.write('    Seu RA: _____________________________</p><br />\n')
+    saida.write('    Seu RA: _____________________________</p>\n')
+    hoje = datetime.date.today()
+    saida.write('<p>Cartela gerada %s</p><br />' % hoje)
 
     # símbolo especial para o centro da cartela
     especial = '<img src="bingo.jpg">'
@@ -105,6 +106,9 @@ if latex:
     saida.write('\\end{document}\n')
 
     saida.close()
+
+    # compila o arquivo .tex
+    os.system('pdflatex --interaction=nonstopmode bingo.tex')
 
 arquivo.close()
 
