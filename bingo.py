@@ -51,7 +51,7 @@ if html:
     saida.write('    Seu RA: _____________________________</p><br />')
 
     # símbolo especial para o centro da cartela
-    especial = '<IMG SRC="161590.jpg">'
+    especial = '<img src="bingo.jpg">'
 
     # cartela
     saida.write('<table border="1">')
